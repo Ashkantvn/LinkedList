@@ -114,37 +114,3 @@ class linkedList {
     }
   }
 }
-
-////codes for testing linked list
-const list = new linkedList();
-for (let i = 0; i < 16; i++) {
-  if (i === 0) {
-    console.log("Is it empty? ", list.isEmpty());
-    console.log("Size of Linked list : ", list.getSize());
-  } else if (i < 4) {
-    list.prepend(`Data${i}`);
-    console.log("Size of linked list after prepend a node : ", list.getSize());
-    console.log("Now ,is it empty? ", list.isEmpty());
-  } else if (i >= 4 && i < 7) {
-    list.append(`Data${i}`);
-    console.log("Size of linked list after append a node : ", list.getSize());
-    console.log("Now ,is it empty? ", list.isEmpty());
-  } else if (i >= 7 && i < 10) {
-    list.insert(`Data${i}`, i - 4);
-    console.log("Size of linked list after insert a node : ", list.getSize());
-    console.log("Now ,is it empty? ", list.isEmpty());
-  } else if (i >= 10 && i < 13) {
-    list.remove(i - 6);
-    console.log("Size of linked list after remove a node : ", list.getSize());
-    console.log("Now ,is it empty? ", list.isEmpty());
-  } else {
-    console.log(
-      `Result of searching data${i - 10} : index `,
-      list.search(`Data${i - 10}`)
-    );
-  }
-  console.log("All values of linked list : ");
-  console.log("head : ");
-  list.print();
-  console.log(" ");
-}
