@@ -41,20 +41,38 @@ class linkedList {
       }
     }
   }
+
+  append(value){
+    const node = new Node(value);
+    if(this.isEmpty()){
+        this.head = node;
+    }else{
+        let lastNode = this.head;
+        while(lastNode.next){
+            lastNode=lastNode.next;
+        }
+        lastNode.next = node;
+    }
+  }
 }
 
 ////codes for testing linked list
 const list = new linkedList();
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 7; i++) {
   if (i === 0) {
     console.log("Is it empty? ", list.isEmpty());
     console.log("Size of Linked list : ", list.getSize());
-  } else {
+  } else if(i<4) {
     list.prepend(`Data${i}`);
     console.log("Size of linked list after prepend a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
+  }else {
+    list.append(`Data${i}`);
+    console.log("Size of linked list after append a node : ", list.getSize());
+    console.log("Now ,is it empty? ", list.isEmpty());
   }
   console.log("All values of linked list : ");
+  console.log("head : ");
   list.print();
   console.log(" ");
 }
