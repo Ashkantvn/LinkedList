@@ -42,35 +42,35 @@ class linkedList {
     }
   }
 
-  append(value){
+  append(value) {
     const node = new Node(value);
-    if(this.isEmpty()){
-        this.head = node;
-    }else{
-        let lastNode = this.head;
-        while(lastNode.next){
-            lastNode=lastNode.next;
-        }
-        lastNode.next = node;
+    if (this.isEmpty()) {
+      this.head = node;
+    } else {
+      let lastNode = this.head;
+      while (lastNode.next) {
+        lastNode = lastNode.next;
+      }
+      lastNode.next = node;
     }
     this.size++;
   }
 
-  insert(value , index){
-    if(index < 0 && index >this.size){
-        return "ERROR";
-    }else if(index === 0){
-        this.prepend(value);
-    }else if(index=== this.size){
-        this.append(value);
-    }else{
-        const node = new Node(value);
-        let previousNode = this.head;
-        for(let i = 0; i < index-1 ; i++){
-            previousNode = previousNode.next;
-        }
-        node.next = previousNode.next;
-        previousNode.next = node;
+  insert(value, index) {
+    if (index < 0 && index > this.size) {
+      return "ERROR";
+    } else if (index === 0) {
+      this.prepend(value);
+    } else if (index === this.size) {
+      this.append(value);
+    } else {
+      const node = new Node(value);
+      let previousNode = this.head;
+      for (let i = 0; i < index -1 ; i++) {
+        previousNode = previousNode.next;
+      }
+      node.next = previousNode.next;
+      previousNode.next = node;
     }
     this.size++;
     console.log("insert");
@@ -83,16 +83,16 @@ for (let i = 0; i < 10; i++) {
   if (i === 0) {
     console.log("Is it empty? ", list.isEmpty());
     console.log("Size of Linked list : ", list.getSize());
-  } else if(i<4) {
+  } else if (i < 4) {
     list.prepend(`Data${i}`);
     console.log("Size of linked list after prepend a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
-  }else if(i>=4 && i<7){
+  } else if (i >= 4 && i < 7) {
     list.append(`Data${i}`);
     console.log("Size of linked list after append a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
-  }else{
-    list.insert(`Data${i}`,i-4);
+  } else {
+    list.insert(`Data${i}`, i - 4);
     console.log("Size of linked list after insert a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
   }
