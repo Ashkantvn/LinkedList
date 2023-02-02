@@ -66,7 +66,7 @@ class linkedList {
     } else {
       const node = new Node(value);
       let previousNode = this.head;
-      for (let i = 0; i < index -1 ; i++) {
+      for (let i = 0; i < index - 1; i++) {
         previousNode = previousNode.next;
       }
       node.next = previousNode.next;
@@ -75,11 +75,28 @@ class linkedList {
     this.size++;
     console.log("insert");
   }
+
+  remove(index) {
+    if (index < 0 && index > this.size) {
+      return "ERROR";
+    } else if (index === 0) {
+      this.head = this.head.next;
+    } else {
+      let removedNode = this.head;
+      let previousNode = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        previousNode = previousNode.next;
+      }
+      removedNode = previousNode.next;
+      previousNode.next =removedNode.next;
+    }
+    this.size--;
+  }
 }
 
 ////codes for testing linked list
 const list = new linkedList();
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 13; i++) {
   if (i === 0) {
     console.log("Is it empty? ", list.isEmpty());
     console.log("Size of Linked list : ", list.getSize());
@@ -91,9 +108,13 @@ for (let i = 0; i < 10; i++) {
     list.append(`Data${i}`);
     console.log("Size of linked list after append a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
-  } else {
+  } else if(i>=7 && i<10){
     list.insert(`Data${i}`, i - 4);
     console.log("Size of linked list after insert a node : ", list.getSize());
+    console.log("Now ,is it empty? ", list.isEmpty());
+  }else{
+    list.remove( i - 6);
+    console.log("Size of linked list after remove a node : ", list.getSize());
     console.log("Now ,is it empty? ", list.isEmpty());
   }
   console.log("All values of linked list : ");
