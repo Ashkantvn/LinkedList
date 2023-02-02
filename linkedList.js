@@ -18,8 +18,34 @@ class linkedList {
   getSize() {
     return this.size;
   }
+
+  prepend(value){
+    const node = new Node(value);
+    if(this.isEmpty()){
+        this.head = node;
+    }else {
+        node.next = this.head;
+        this.head = node;
+    }
+    this.size++;
+  }
 }
 
+
+////codes for testing linked list
 const list = new linkedList();
 console.log("Is it empty? ", list.isEmpty());
 console.log("Size of Linked list : ", list.getSize());
+
+list.prepend("Data");
+console.log("Size of linked list after prepend a node : " , list.getSize());
+console.log("Now ,is it empty? ", list.isEmpty());
+
+list.prepend("Data1");
+console.log("Size of linked list after prepend a node : " , list.getSize());
+console.log("Now ,is it empty? ", list.isEmpty());
+
+list.prepend("Data2");
+console.log("Size of linked list after prepend a node : " , list.getSize());
+console.log("Now ,is it empty? ", list.isEmpty());
+
