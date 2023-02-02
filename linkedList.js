@@ -29,6 +29,18 @@ class linkedList {
     }
     this.size++;
   }
+
+  print(){
+    if(this.isEmpty()){
+       console.log("linked list is empty!");
+    }else{
+        let currentNode  =  this.head;
+        while(currentNode){
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
+    }
+  }
 }
 
 
@@ -36,16 +48,27 @@ class linkedList {
 const list = new linkedList();
 console.log("Is it empty? ", list.isEmpty());
 console.log("Size of Linked list : ", list.getSize());
+console.log("All values of linked list : ");
+list.print();
+console.log(" ");
 
 list.prepend("Data");
 console.log("Size of linked list after prepend a node : " , list.getSize());
 console.log("Now ,is it empty? ", list.isEmpty());
+console.log("All values of linked list : ");
+list.print();
+console.log(" ");
 
 list.prepend("Data1");
 console.log("Size of linked list after prepend a node : " , list.getSize());
 console.log("Now ,is it empty? ", list.isEmpty());
+console.log("All values of linked list : ");
+list.print();
+console.log(" ");
 
 list.prepend("Data2");
 console.log("Size of linked list after prepend a node : " , list.getSize());
 console.log("Now ,is it empty? ", list.isEmpty());
-
+console.log("All values of linked list : ");
+list.print();
+console.log(" ");
